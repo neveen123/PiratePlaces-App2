@@ -8,4 +8,5 @@
     <string name="checked_in">Checked In</string>
     <string name="not_checked_in">Not Checked In</string>
     <string name="checked_in_message">You Checked In!</string>
+
 </resources>
