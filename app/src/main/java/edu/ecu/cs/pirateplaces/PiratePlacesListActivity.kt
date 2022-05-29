@@ -9,13 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
-private const val KEY_INDEX = "index"
-private const val REQUEST_CODE_CHECK_IN = 0
-
 class PiratePlacesListActivity : AppCompatActivity() {
-
-  //  private lateinit var nameTextView: TextView
-  //  private lateinit var visitedWithTextView: TextView
 
     private val piratePlacesViewModel: PiratePlacesViewModel by lazy {
         ViewModelProvider(this).get(PiratePlacesViewModel::class.java)
@@ -33,34 +27,6 @@ class PiratePlacesListActivity : AppCompatActivity() {
                 .add(R.id.fragment_container, fragment)
                 .commit()
         }
-      //  nameTextView = findViewById(R.id.name_text_view)
-        //visitedWithTextView = findViewById(R.id.visited_with)
-        // val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
-      //  piratePlacesViewModel.currentIndex = currentIndex
-
-
-
-
-      // nameTextView.setOnClickListener {
-        // Launch new activity
-        //val intent = CheckInActivity.newIntent(this, piratePlacesViewModel.currentName)
-        //startActivityForResult(intent, REQUEST_CODE_CHECK_IN)
-       // }
-
-        //updateUI()
-        }
-
-
-       /** override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt(KEY_INDEX, piratePlacesViewModel.currentIndex)
-        }**/
-
-
-
-        //private fun updateUI() {
-       // nameTextView.setText(piratePlacesViewModel.currentName)
-       // visitedWithTextView.setText(piratePlacesViewModel.currentVisitedWith)
-       // }
     }
+}
 

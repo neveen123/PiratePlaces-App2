@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -53,11 +54,20 @@ class PiratePlacesListFragment: Fragment() {
         }
     }
     private inner class PirateHolder(view: View)
-        : RecyclerView.ViewHolder(view){
+        : RecyclerView.ViewHolder(view), View.OnClickListener{
 
         val nameTextView: TextView = itemView.findViewById(R.id.name_text_view)
         val visitedWithTextView: TextView = itemView.findViewById(R.id.visited_with)
+
+        init {
+            itemView.setOnClickListener(this)
         }
+        override fun onClick(v: View) {
+            Toast.makeText(context, "Visted ${nameTextView.text} with ${visitedWithTextView.text}!", Toast.LENGTH_SHORT)
+                .show()
+        }
+        }
+
     private inner class PirateAdapter(var pirateList: List<PiratePlace>)
         : RecyclerView.Adapter<PirateHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
@@ -69,9 +79,9 @@ class PiratePlacesListFragment: Fragment() {
         override fun onBindViewHolder(holder: PirateHolder, position: Int) {
             val pirate  = pirateList[position]
             holder.apply {
-                nameTextView.text = nameTextView.toString()
-                visitedWithTextView.text = pirate.toString()
+                nameTextView.setText(pirate.name)
+                visitedWithTextView.setText(pirate.visitedWith)
             }
         }
     }
-    }
+}
